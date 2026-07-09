@@ -16,21 +16,16 @@ CREATE TABLE produtos (
 CREATE TABLE pedidos (
     id INT PRIMARY KEY AUTO_INCREMENT,
     id_cliente INT,
-    FOREIGN KEY (id_cliente)
-        REFERENCES clientes(id)
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id)
 );
 
 CREATE TABLE itens_pedido (
-    id INT PRIMARY KEY AUTO_INCREMENT
+    id INT PRIMARY KEY AUTO_INCREMENT,
     id_pedido INT,
     id_produto INT,
     quantidade INT,
-
-    FOREIGN KEY (id_pedido)
-        REFERENCES pedidos(id),
-
-    FOREIGN KEY (id_produto)
-        REFERENCES produtos(id)
+    FOREIGN KEY (id_pedido) REFERENCES pedidos(id),
+    FOREIGN KEY (id_produto) REFERENCES produtos(id)
 );
 
 INSERT INTO clientes (nome) VALUES
